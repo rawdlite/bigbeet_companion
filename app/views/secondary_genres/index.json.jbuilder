@@ -1,0 +1,1 @@
+json.array! @secondary_genres, partial: 'secondary_genres/secondary_genre', as: :secondary_genre

@@ -1,0 +1,1 @@
+json.partial! "secondary_genres/secondary_genre", secondary_genre: @secondary_genre

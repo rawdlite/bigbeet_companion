@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Album Groups</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @album_groups.each do |album_group| %>
+      <tr>
+        <td><%= link_to 'Show', album_group %></td>
+        <td><%= link_to 'Edit', edit_album_group_path(album_group) %></td>
+        <td><%= link_to 'Destroy', album_group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Album Group', new_album_group_path %>

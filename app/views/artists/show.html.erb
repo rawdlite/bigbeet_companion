@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+<h2> <%= @artist.name %></h2>
+<table>
+    <tr><td>albumartist_credit</td><td><%= @artist.albumartist_credit %></td></tr>
+    <tr><td>albumartist_sort </td><td><%= @artist.albumartist_sort%></td></tr>
+    <tr><td>country </td><td><%= @artist.country%></td></tr>
+    <tr><td>genre </td><td><%= link_to @artist.genre.name, @artist.genre%></td></tr>
+    <tr><td>mb_albumartistid </td><td><%= @artist.mb_albumartistid %></td></tr>
+</table>
+<%= link_to 'Edit', edit_artist_path(@artist) %> |
+<%= link_to 'Back', artists_path %>
+
+<h2> Alben </h2>
+<ul>
+    <% @artist.albums.each do |album| %>
+    <li><%= album.original_year || album.year || ''%> <%= link_to album.name, album %>
+        <%= album.mb_albumid %> (<%= album.tracktotal %>) <%= link_to 'play', play_album_path(album) %></li>
+    <% end %>
+</ul>

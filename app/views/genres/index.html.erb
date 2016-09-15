@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Genres</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @genres.each do |genre| %>
+      <%= show_child(genre) %>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Genre', new_genre_path %>

@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+<h2><%= @album.name %></h2>
+<table>
+    <tr><td>added</td><td><%= @album.added  %></td></tr>
+    <tr><td>album_group</td><td><%= link_to @album.album_group.name, @album.album_group  %></td></tr>
+    <tr><td>albumstatus</td><td><%= @album.albumstatus  %></td></tr>
+    <tr><td>artist</td><td><%= link_to @album.artist.name, @album.artist  %></td></tr>
+    <tr><td>beets_id</td><td><%= @album.beets_id  %></td></tr>
+    <tr><td>catalognum</td><td><%= @album.catalognum  %></td></tr>
+    <tr><td>comp</td><td><%= @album.comp  %></td></tr>
+    <tr><td>day</td><td><%= @album.day  %></td></tr>
+    <tr><td>disctotal</td><td><%= @album.disctotal  %></td></tr>
+    <tr><td>genre</td><td><%=link_to @album.genre.name, @album.genre  %></td></tr>
+    <tr><td>label</td><td><%= link_to @album.label.name, @album.label  %></td></tr>
+    <tr><td>language</td><td><%= @album.language  %></td></tr>
+    <tr><td>mb_albumid</td><td><%= @album.mb_albumid  %></td></tr>
+    <tr><td>mb_releasegroupid</td><td><%= @album.mb_releasegroupid  %></td></tr>
+    <tr><td>month</td><td><%= @album.month  %></td></tr>
+    <tr><td>tracktotal</td><td><%= @album.tracktotal  %></td></tr>
+    <tr><td>original_day</td><td><%= @album.original_day  %></td></tr>
+    <tr><td>original_month</td><td><%= @album.original_month  %></td></tr>
+    <tr><td>original_year</td><td><%= @album.original_year  %></td></tr>
+    <tr><td>year</td><td><%= @album.year  %></td></tr>
+</table>
+<%= link_to 'Edit', edit_album_path(@album) %> |
+<%= link_to 'Back', albums_path %>
+
+<h3>Tracks</h3>
+<ul>
+    <% @album.tracks.each do |track| %>
+    <li><%= link_to track.name, track %> <%= track.mb_trackid %><%= link_to 'play', play_track_path(track)%></li>
+    <% end %>
+</ul>

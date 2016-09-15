@@ -1,0 +1,1 @@
+json.array! @album_groups, partial: 'album_groups/album_group', as: :album_group

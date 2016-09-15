@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+<h2><%= @genre.name %></h2>
+<%= link_to 'Edit', edit_genre_path(@genre) %> |
+<%= link_to 'Back', genres_path %>
+
+<% if @genre.parent %>
+<h3> Parent </h3>
+<%= link_to @genre.ancestor.name, @genre.ancestor%>
+<% end %>
+
+<% if !@genre.children.empty? %>
+<h3>Children</h3>
+<table>
+  <thead>
+    <tr>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%@genre.children.each do |genre| %>
+    <%= genre.name %>
+      <%= show_child(genre) %>
+    <% end %>
+  </tbody>
+</table>
+
+<% end %>
+
+<h3>Artist:</h3>
+<ul>
+<% @genre.artists.each do |artist| %>
+<li><%= link_to artist.name, artist %> <%= artist.mb_albumartistid %></li>
+<% end %>
+</ul>
